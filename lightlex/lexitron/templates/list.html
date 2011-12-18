@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load lexitron_extras %}
+
+{% block title_bar %}{{ lookup_str|capfirst }}{% endblock %}
+
+{% block full_content %}
+
+{% autoescape off %}
+
+<h1>{{ lookup_str|capfirst }}?</h1>
+
+<div class="lookup-list">
+{% if items %}
+	<span class="label">Possible Words:</span> {{ items|list_lookup_links }}
+{% else %}
+	Sorry. This word is not yet in this dictionary.
+{% endif %}
+</div>
+
+{% endautoescape %}
+
+{% endblock %}

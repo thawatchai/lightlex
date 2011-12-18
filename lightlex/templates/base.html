@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>LightLex :: {% block title_bar %}Welcome{% endblock %}</title>
+		<link rel="stylesheet" type="text/css" href="/lightlex-media/base.css" />
+	</head>
+	<body>
+		<div id="header-wrapper">
+			<div id="header">
+				<a href="/"><img src="/lightlex-media/lightlex-logo.gif" alt="lightlex" width="150" height="28" style="float: left;" /></a>
+				<div id="headbar">
+					<ul>
+						<li><a href="/">Home</a></li>
+						<li><a href="/lightlex/news">What's New!</a></li>
+						<li><a href="/lightlex/howto">How To</a></li>
+						<li><a href="/lightlex/about">About</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="page-wrapper">
+			<div id="lookup-box">
+				<form action="/" method="POST">
+					Look Up:
+					<input type="text" value="{{ lookup_str }}" name="lookup_str" class="lookup_str" />
+					<input type="submit" value=" Go " name="lookup_button" class="btn" onmouseover="this.className='btnhov'" onmouseout="this.className='btn'" />
+				</form>
+			</div>
+			<div id="page">
+				<div id="full-content">
+					{% block full_content %}{% endblock %}
+				</div>
+				<div id="content">
+					{% block content %}{% endblock %}
+				</div>
+				<div id="sidebar">
+					{% block sidebar %}{% endblock %}
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			<p>
+			This service is brought to you by <a href="http://usablelabs.org">UsableLabs</a> and friends.<br />
+			By friends, we mean <a href="http://www.nectec.or.th/">NECTEC</a>, <a href="http://www.psu.ac.th/">PSU</a>, <a href="http://www.kmi.or.th/">KMI</a>, <a href="http://www.trf.or.th/">TRF</a>, <a href="http://www.trnlab.org/">TRN</a>, and <a href="http://www.inet.co.th/">INET</a>.<br />
+			&copy; 2007 UsableLabs and others
+
+			<!--BEGIN WEB STAT CODE-->
+			<SCRIPT LANGUAGE="javascript1.1" src="http://hits.truehits.in.th/data/s0028545.js"></SCRIPT>
+			<!-- END WEBSTAT CODE -->
+
+			<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+			</script>
+			<script type="text/javascript">
+				_uacct = "UA-1374511-7";
+				urchinTracker();
+			</script>
+			
+			</p>
+		</div>
+	</body>
+</html>

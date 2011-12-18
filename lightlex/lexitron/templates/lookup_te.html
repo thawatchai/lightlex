@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load lexitron_extras %}
+
+{% block title_bar %}{{ lookup_str }}{% endblock %}
+
+{% block full_content %}
+
+{% autoescape off %}
+
+<h1>{{ lookup_str }}</h1>
+
+<div class="lookup-list">Sense:</b> {{ senses|str_lookup_links }}</div>
+
+{% for item in items %}
+<div class="lookup-item">
+	<table>
+		<tr><td class="rh">English:</td><td>{{ item.eentry|to_lookup_link }}</td></tr>
+
+		{% ifnotequal item.tenglish None %}
+		<tr><td class="rh">Relation:</td><td>{{ item.tenglish|str_lookup_links }}</td></tr>
+		{% endifnotequal %}
+
+		{% ifnotequal item.tdef None %}
+		<tr><td class="rh">Definition:</td><td>{{ item.tdef }}</td></tr>
+		{% endifnotequal %}
+
+		{% ifnotequal item.tsample None %}
+		<tr><td class="rh">Sample:</td><td>{{ item.tsample }}</td></tr>
+		{% endifnotequal %}
+
+		<tr><td class="rh">Category:</td><td>{{ item.tcat|category }}</td></tr>
+
+		{% ifnotequal item.tnum None %}
+		<tr><td class="rh">Number:</td><td>{{ item.tnum|to_lookup_link }}</td></tr>
+		{% endifnotequal %}
+
+		{% ifnotequal item.tsyn None %}
+		<tr><td class="rh">Synonym:</td><td>{{ item.tsyn|str_lookup_links }}</td></tr>
+		{% endifnotequal %}
+
+		{% ifnotequal item.tant None %}
+		<tr><td class="rh">Antonym:</td><td>{{ item.tant|str_lookup_links }}</td></tr>
+		{% endifnotequal %}
+	</table>
+</div>
+{% endfor %}
+
+{% endautoescape %}
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block full_content %}
+
+{% autoescape off %}
+
+<h1>{{ short_message }}: {{ lookup_str|capfirst }}</h1>
+
+<div class="lookup-list">{{ long_message }}</div>
+
+{% endautoescape %}
+
+{% endblock %}
